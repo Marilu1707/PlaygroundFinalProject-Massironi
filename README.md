@@ -25,3 +25,5 @@ Dentro de la sección Acerca de, encontrará información breve sobre el autor.
 El sistema facilita la administración de usuarios. Aquí encontrará: Acceder y Crear cuenta. Si no ha iniciado sesión, podrá explorar el sitio, pero con limitaciones en las capacidades. Después de iniciar sesión, podrá acceder a Mi Perfil, Modificar perfil y Cambiar contraseña.
 En la sección Publicaciones, podrá ver todas las entradas y tendrá varias opciones para gestionarlas: Nueva, Buscar. Si usted es el autor de una publicación y desea editarla o eliminarla, puede hacerlo utilizando las opciones correspondientes en la barra de navegación. Sin embargo, esto no estará disponible si no es el autor original.
 Desde la sección Conversaciones, podrá interactuar con distintos usuarios, iniciando chats con ellos.
+
+link del video: https://youtu.be/oouvh_a80-Q
