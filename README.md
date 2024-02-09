@@ -1,90 +1,27 @@
-# Coderhouse-56065-Django
+# PlaygroundFinalProject-Massironi
+para iniciar el archivo debes de iniciar la terminal y utilizar el siguiente comando:
+- `pip install -r requirements.txt`
 
-## Entornos virtuales
-
-Un entorno virtual en Python es una herramienta 
-que te permite crear un espacio aislado donde puedes instalar 
-y manejar las dependencias (bibliotecas y versiones de Python) 
-específicas para un proyecto en particular, sin afectar al sistema global
-
-- `pip list`: Muestra las bibliotecas instaladas en el entorno virtual o global
-
-¿Cómo crear un entorno virtual? (entorno aislado del global)
-
+crea el entorno virtual si no ves la carpete .venv 
 - `python -m venv .venv` (Windows)
 - `python3 -m venv .venv` (Linux o Mac)
 
-¿Cómo activar el entorno virtual?
+activa el entorno virtual
 - `.\.venv\Scripts\activate`  (Windows Powershell)
 - `source .venv/bin/activate` (Linux o Mac)
 
-¿Cómo crear requirements.txt?
-- `pip freeze >> requirements.txt`
-
-¿Cómo instalar paquetes desde requirements.txt?
-- `pip install -r requirements.txt`
-
-## Instalación Django
-
-- `pip install django`
-
-## Crear un proyecto
-    
-1. Crear una carpeta para el proyecto en la raiz:
-    - `md project`
-
-2. Acceder a la carpeta `project`
+Acceder a la carpeta `project`
     - `cd project`
 
-3. Crear las carpetas y archivos necesarios
-    - `django-admin startproject config .`
-
-4. Ejecutar el servidor:
+y Ejecutar el servidor:
     - `python manage.py runserver`
 
-## Crear una aplicación:
 
-1. Estar ubicado dentro de `project` pero fuera de `config`
-    - `cd ..`
-    - `ls`
+@indicaciones de la pagina:
 
-2. Crear una carpeta para que contenga las aplicaciones
-    - `md apps`
-
-3. Acceder a la carpeta `apps`
-    - `cd apps`
-
-4. Crear la aplicación Django con el nombre que desee
-    - `django-admin startapp core`
-
-5. Agregar el nombre de la app en lista `config.settings.INSTALLED_APPS`
-
-6. Agregar el siguiente código a `config.settigs`
-
-    ```py
-    import sys
-
-    sys.path.append(str(BASE_DIR / "apps"))
-    ```
-
-## Establecer `config.settings.SECRET_KEY`
-
-```py
-from django.core.management.utils import get_random_secret_key
-
-SECRET_KEY = get_random_secret_key()
-```
-
-## Crear base de datos
-
-Crear archivos Python pre-SQL:
-
-- `python manage.py makemigrations`
-
-Crear SQL y modificar base de datos:
-
-- `python manage.py migrate`
-
-## Crear superusuario
-
-- `python manage.py createsuperuser`
+Al seleccionar admin será redirigido al panel principal, independientemente de su ubicación actual. Lo mismo ocurrirá al hacer clic en Página Principal.
+El programa ofrece diversas áreas, cada una con funcionalidades específicas que se detallan a continuación: Publicaciones, Conversaciones, Acerca de, Acceso / Perfil.
+Dentro de la sección Acerca de, encontrará información breve sobre el autor.
+El sistema facilita la administración de usuarios. Aquí encontrará: Acceder y Crear cuenta. Si no ha iniciado sesión, podrá explorar el sitio, pero con limitaciones en las capacidades. Después de iniciar sesión, podrá acceder a Mi Perfil, Modificar perfil y Cambiar contraseña.
+En la sección Publicaciones, podrá ver todas las entradas y tendrá varias opciones para gestionarlas: Nueva, Buscar. Si usted es el autor de una publicación y desea editarla o eliminarla, puede hacerlo utilizando las opciones correspondientes en la barra de navegación. Sin embargo, esto no estará disponible si no es el autor original.
+Desde la sección Conversaciones, podrá interactuar con distintos usuarios, iniciando chats con ellos.
