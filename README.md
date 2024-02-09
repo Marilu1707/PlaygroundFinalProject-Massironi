@@ -17,7 +17,7 @@ y Ejecutar el servidor:
     - `python manage.py runserver`
 
 
-@indicaciones de la pagina:
+#indicaciones de la pagina:
 
 Al seleccionar admin será redirigido al panel principal, independientemente de su ubicación actual. Lo mismo ocurrirá al hacer clic en Página Principal.
 El programa ofrece diversas áreas, cada una con funcionalidades específicas que se detallan a continuación: Publicaciones, Conversaciones, Acerca de, Acceso / Perfil.
