@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+{% block bloque_titulo %}
+    MI BLOG | Editar
+{% endblock bloque_titulo %}
+
+{% block bloque_h1_header %}
+    Editar publicación
+{% endblock bloque_h1_header %}
+
+{% block bloque_sub_header %}
+    Actualizá el contenido de esta publicación
+{% endblock bloque_sub_header %}
+
+{% block contenidoquecambia %}
+    <section data-animate class="bg-light">
+        <div class="container d-flex justify-content-center">
+            <form class="card p-4 col-md-8" action={% url 'editar_post' post.id %} method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-borderless w-100 fst-italic">
+                    {{ form.media }}
+                    {{ form }}
+                </table>
+                <div class="py-3 text-center">
+                    <button class="btn btn-outline-primary fst-italic"><i class="bi bi-bookmark"></i> Editar</button>
+                    <a class="btn btn-outline-danger fst-italic" href={% url 'ver_post' post.id %} role="button"><i class="bi bi-x-circle"></i> Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock contenidoquecambia %}

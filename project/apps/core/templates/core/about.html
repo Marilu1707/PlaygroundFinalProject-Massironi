@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block bloque_titulo %}
+    Mi Blog | Sobre mí
+{% endblock bloque_titulo %}
+
+{% block bloque_nav_item_sobre_mi %}
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 active" href= {% url 'core/about.html' %}>><i class="bi bi-info-circle"></i> Sobre mí</a></li>
+{% endblock bloque_nav_item_sobre_mi %}
+
+{% block bloque_h1_header %}
+    Sobre mí
+{% endblock bloque_h1_header %}
+
+{% block bloque_sub_header %}
+    
+{% endblock bloque_sub_header %}
+
+{% block contenidoquecambia %}
+    <section data-animate class="testimonials text-center bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <img class="img-fluid rounded-circle mb-3" src= {% static 'assets/img/yo.jpg' %} alt="imagen de maria lujan"/>
+                        <h5>Maria Lujan</h5>
+                        <p class="mb-0 fst-italic">
+                           
+
+¡Hola a todos! Mi nombre es María Luján y tengo 19 años. Soy de Pinamar, Buenos Aires.
+
+Soy una estudiante de Tecnologías de la Información (IT) que comenzó su viaje en la Universidad de UADE. Actualmente, me encuentro inmersa en el mundo de los cursos especializados, donde ya he completado con éxito cuatro de ellos y estoy emocionada por enfrentar este nuevo desafío que me queda por delante.
+
+Mi pasión por la tecnología me impulsa a seguir adquiriendo conocimientos y habilidades en este campo en constante evolución. Mi objetivo es explorar nuevas tecnologías y contribuir al mundo digital de manera significativa.
+
+Estoy emocionada por lo que el futuro me depara en mi carrera profesional y estoy lista para aprovechar al máximo cada oportunidad y desafío que se presente en mi camino. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock contenidoquecambia %}

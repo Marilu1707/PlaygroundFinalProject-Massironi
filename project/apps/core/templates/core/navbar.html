@@ -1,0 +1,61 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="">admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                <li class="nav-item"><a
+                        class="nav-link px-lg-3 py-3 py-lg-4 {% block bloque_home_active %}{% endblock bloque_home_active %}"
+                        href={% url 'about' %}><i class="bi bi-house-door"></i> Inicio</a></li>
+                <li class="nav-item"><a
+                        class="nav-link px-lg-3 py-3 py-lg-4 {% block bloque_posts_active %}{% endblock bloque_posts_active %}"
+                        href={% url 'ver_posts' %}><i class="bi bi-journals"></i> Posts</a></li>
+
+                {% block bloque_nav_items %}{% endblock bloque_nav_items %}
+
+                <!-- Funcionalidades de Chat  -->
+                {% if request.user.is_authenticated and not request.user.is_staff %}
+                <li class="nav-item"><a
+                        class="nav-link px-lg-3 py-3 py-lg-4 {% block bloque_chat_active %}{% endblock bloque_chat_active %}"
+                        href={% url 'ver_chats' %}><i class="bi bi-chat"></i> Chat</a></li>
+
+                {% block bloque_nav_items_chat %}{% endblock bloque_nav_items_chat %}
+                {% endif %}
+
+                {% block bloque_nav_item_sobre_mi %}{% endblock bloque_nav_item_sobre_mi %}
+
+                <!-- Usuario Logueado (Navbar-item y Dropdown) -->
+                <li class="nav-item dropdown">
+                    {% if request.user.is_authenticated %}
+                    <a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                            class="bi bi-person-circle"></i> {{ request.user.username }}</a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href={% url 'ver_perfil' %}><i class="bi bi-person"></i> Mi perfil</a>
+                        <a class="dropdown-item" href={% url 'editar_perfil'%}><i class="bi bi-pencil"></i>
+                            Editar perfil</a>
+                        <a class="dropdown-item" href={% url 'change_password' %}><i
+                                class="bi bi-key"></i> Cambiar contraseña</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href={% url 'logout' %}></i> Cerrar sesión</a>
+                    </div>
+                    {% else %}
+                    <a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                            class="bi bi-person-circle"></i></a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href={% url 'login' %}><i
+                                class="bi bi-box-arrow-in-left"></i> Iniciar sesión</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href={% url 'registrar' %}><i class="bi bi-person-plus"></i>
+                            Registrarme</a>
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

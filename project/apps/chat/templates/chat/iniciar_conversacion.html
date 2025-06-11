@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+
+{% block bloque_titulo %}
+    MI BLOG | Iniciar chat
+{% endblock bloque_titulo %}
+
+{% block bloque_h1_header %}
+    Iniciar chat
+{% endblock bloque_h1_header %}
+
+{% block bloque_sub_header %}
+    Estás a punto de iniciar una nueva conversación
+{% endblock bloque_sub_header %}
+
+{% block contenidoquecambia %}
+    <section data-animate class="bg-light">
+        <div class="container d-flex justify-content-center">
+            <form class="card p-4 col-md-6 lead fst-italic" action={% url 'nuevo_chat' %} method="POST">
+                {% csrf_token %}
+                {{formulario_iniciar_chat.as_p}}
+                <div class="py-3 text-center">
+                    <button class="btn btn-outline-primary fst-italic"><i class="bi bi-chat"></i> Iniciar</button>
+                    <a class="btn btn-outline-danger fst-italic" href={% url 'ver_chats' %} role="button"><i class="bi bi-x-circle"></i> Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock contenidoquecambia %}

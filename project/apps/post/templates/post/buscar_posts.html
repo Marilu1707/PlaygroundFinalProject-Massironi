@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% block bloque_titulo %}
+    MI BLOG | Búsqueda
+{% endblock bloque_titulo %}
+
+{% block bloque_nav_items %}
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 active" href={% url 'buscar_posts' %}><i class="bi bi-search"></i> Buscar</a></li>
+{% endblock bloque_nav_items %}
+
+{% block bloque_h1_header %}
+    Búsqueda de publicaciones
+{% endblock bloque_h1_header %}
+
+{% block bloque_sub_header %}
+    Filtrá publicaciones por título
+{% endblock bloque_sub_header %}
+
+{% block contenidoquecambia %}
+    <section data-animate class="bg-light">
+        <div class="container d-flex justify-content-center">
+            <form class="card p-4 col-md-6" action={% url 'buscar_posts' %} method="GET">
+                <table class="w-100 fst-italic">
+                    {{ formulario_buscar_posts.as_table }}
+                </table>
+                <div class="py-3 text-center">
+                    <button class="btn btn-outline-primary fst-italic"><i class="bi bi-search"></i> Buscar</button>
+                    <hr/>
+                </div>
+            </form>
+            {% if posts %}
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        {% for post in posts %}
+                            <div class="card mb-4" data-animate>
+                                <div class="card-body">
+                                    <a href={% url 'ver_post' post.id %} class="text-decoration-none">
+                                        <h2 class="card-title">{{ post.titulo }}</h2>
+                                        <h3 class="card-subtitle mb-2">{{ post.subtitulo }}</h3>
+                                    </a>
+                                    <p class="card-text"><small>Posteado por {{ post.autor }} el {{ post.fecha_creacion }}.</small></p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="px-3 px-lg-4 pb-3 pb-lg-4 lead fst-italic">
+                    <p>No se encontraron publicaciones con los datos ingresados.</p>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+{% endblock contenidoquecambia %}

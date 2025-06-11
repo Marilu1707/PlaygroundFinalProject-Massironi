@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block bloque_titulo %}
+    MI BLOG | Nuevo
+{% endblock bloque_titulo %}
+
+{% block bloque_nav_items %}
+    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 active" href={% url 'nuevo_post' %}><i class="bi bi-journal-richtext"></i> Nuevo</a></li>
+{% endblock bloque_nav_items %}
+
+{% block bloque_h1_header %}
+    Nueva publicación
+{% endblock bloque_h1_header %}
+
+{% block bloque_sub_header %}
+    Creá una nueva publicación
+{% endblock bloque_sub_header %}
+
+{% block contenidoquecambia %}
+    <section data-animate class="bg-light">
+        <div class="container d-flex justify-content-center">
+            <form class="card p-4 col-md-8" action={% url 'nuevo_post' %} method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-borderless w-100 fst-italic">
+                    {{ form.media }}
+                    {{ form }}
+                </table>
+                <div class="py-3 text-center">
+                    <button class="btn btn-outline-primary fst-italic"><i class="bi bi-bookmark"></i> Guardar</button>
+                    <a class="btn btn-outline-danger fst-italic" href={% url 'ver_posts' %} role="button"><i class="bi bi-x-circle"></i> Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock contenidoquecambia %}

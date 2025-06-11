@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+
+{% block bloque_titulo %}
+    MI BLOG | Editar perfil
+{% endblock bloque_titulo %}
+
+{% block bloque_h1_header %}
+    Editar perfil
+{% endblock bloque_h1_header %}
+
+{% block bloque_sub_header %}
+    Actualizá tu información
+{% endblock bloque_sub_header %}
+
+{% block contenidoquecambia %}
+    <section data-animate class="bg-light">
+        <div class="container d-flex justify-content-center">
+            <form class="card p-4 col-md-6" action={% url 'editar_perfil' %} method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table class="table table-borderless w-100 fst-italic">
+                    {{ formulario_editar_perfil.as_table }}
+                </table>
+                <div class="py-3 text-center">
+                    <button class="btn btn-outline-primary fst-italic"><i class="bi bi-save2"></i> Guardar</button>
+                    <a class="btn btn-outline-danger fst-italic" href={% url 'ver_perfil' %} role="button"><i class="bi bi-x-circle"></i> Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock contenidoquecambia %}

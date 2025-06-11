@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block bloque_titulo %}
+    MI BLOG | Registro
+{% endblock bloque_titulo %}
+
+{% block bloque_h1_header %}
+    Registro
+{% endblock bloque_h1_header %}
+
+{% block bloque_sub_header %}
+    Crear una nueva cuenta
+{% endblock bloque_sub_header %}
+
+{% block contenidoquecambia %}
+    <section data-animate class="bg-light">
+        <div class="container d-flex justify-content-center">
+            <form class="card p-4 col-md-6 col-lg-4" action={% url 'registrar' %} method="POST">
+                {% csrf_token %}
+                <table class="w-100 fst-italic">
+                    {{ formulario_registro.as_table }}
+                </table>
+                <div class="py-3 text-center">
+                    <button class="btn btn-outline-primary fst-italic">Registrarme</button>
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock contenidoquecambia %}
